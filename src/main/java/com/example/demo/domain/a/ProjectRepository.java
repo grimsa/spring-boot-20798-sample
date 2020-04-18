@@ -1,9 +1,9 @@
 package com.example.demo.domain.a;
 
-import com.example.demo.domain.entities.Segment;
+import com.example.demo.domain.entities.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SegmentRepository extends JpaRepository<Segment, Long> {
+public interface ProjectRepository extends JpaRepository<Project, Long> {
 }
