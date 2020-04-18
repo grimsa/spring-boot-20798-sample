@@ -36,18 +36,25 @@ public class DemoApplication {
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(
-            JpaVendorAdapter jpaVendorAdapter,
-            Map<String, String> jpaPropertiesMap,
-            DataSource dataSource
-    ) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setPersistenceUnitName("primary-persistence-unit");
         entityManagerFactory.setDataSource(dataSource);
-        entityManagerFactory.setPackagesToScan("com.example");
-        entityManagerFactory.setJpaVendorAdapter(jpaVendorAdapter);
-        entityManagerFactory.setJpaPropertyMap(jpaPropertiesMap);
+        entityManagerFactory.setPackagesToScan("com.example.demo");
+        entityManagerFactory.setJpaVendorAdapter(eclipseLinkJpaVendorAdapter());
+        entityManagerFactory.setJpaPropertyMap(Map.of(
+                PersistenceUnitProperties.CATEGORY_LOGGING_LEVEL_ + SessionLog.WEAVER, SessionLog.FINEST_LABEL,
+                PersistenceUnitProperties.WEAVING, "true"
+        ));
         return entityManagerFactory;
+    }
+
+    private JpaVendorAdapter eclipseLinkJpaVendorAdapter() {
+        EclipseLinkJpaVendorAdapter jpaVendorAdapter = new EclipseLinkJpaVendorAdapter();
+        jpaVendorAdapter.setDatabasePlatform(H2Platform.class.getName());
+        jpaVendorAdapter.setShowSql(false);
+        jpaVendorAdapter.setGenerateDdl(false);
+        return jpaVendorAdapter;
     }
 
     @Bean
@@ -57,23 +64,6 @@ public class DemoApplication {
                 .username(env.getRequiredProperty("spring.datasource.username"))
                 .password(env.getRequiredProperty("spring.datasource.password"))
                 .build();
-    }
-
-    @Bean
-    JpaVendorAdapter eclipseLinkJpaVendorAdapter(Environment env) {
-        EclipseLinkJpaVendorAdapter jpaVendorAdapter = new EclipseLinkJpaVendorAdapter();
-        jpaVendorAdapter.setDatabasePlatform(H2Platform.class.getName());
-        jpaVendorAdapter.setShowSql(false);
-        jpaVendorAdapter.setGenerateDdl(false);
-        return jpaVendorAdapter;
-    }
-
-    @Bean
-    Map<String, String> jpaPropertiesMap(Environment env) {
-        return Map.of(
-                PersistenceUnitProperties.CATEGORY_LOGGING_LEVEL_ + SessionLog.WEAVER, SessionLog.FINEST_LABEL,
-                PersistenceUnitProperties.WEAVING, "true"
-        );
     }
 
     @Configuration
