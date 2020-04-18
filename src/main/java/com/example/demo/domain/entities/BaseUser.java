@@ -1,7 +1,5 @@
 package com.example.demo.domain.entities;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +9,6 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@Access(AccessType.FIELD)
 public abstract class BaseUser extends PersistentDomainObjectWithMetaData {
 
     @Id
