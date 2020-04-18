@@ -1,4 +1,4 @@
-package com.example.demo.persistence.entity;
+package com.example.demo.domain.entities;
 
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;

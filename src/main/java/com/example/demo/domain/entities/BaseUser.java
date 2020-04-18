@@ -1,7 +1,5 @@
 package com.example.demo.domain.entities;
 
-import com.example.demo.persistence.entity.PersistentDomainObjectWithMetaData;
-
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
