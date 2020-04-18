@@ -2,10 +2,9 @@ package com.example.demo.domain.entities;
 
 import javax.persistence.Entity;
 
-@Entity(name = "SubclassOfBaseUser")
+@Entity
 public class SpecificUser extends BaseUser {
-
     public String greeting() {
-        return "Hello";
+        return "Hello from SpecificUser";
     }
 }

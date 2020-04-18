@@ -4,10 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity(name = "Project")
-@Table(name = "project")
+@Entity
 public class Project extends PersistentDomainObjectWithMetaData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
