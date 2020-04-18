@@ -4,7 +4,6 @@ buildscript {
 		springVersion = '5.2.5.RELEASE'
 //		springBootVersion = '2.1.13.RELEASE'
 //		springVersion = '5.1.14.RELEASE'
-		newRelicVersion = '4.8.0'
 	}
 }
 
@@ -45,7 +44,3 @@ task prepareInstrumentation(type: Copy) {
 	rename "spring-instrument-${springVersion}.jar", 'spring-instrument.jar'
 }
 processResources.dependsOn(prepareInstrumentation)
-
-test {
-	useJUnitPlatform()
-}
