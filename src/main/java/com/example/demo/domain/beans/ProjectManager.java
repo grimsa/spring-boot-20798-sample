@@ -1,17 +1,16 @@
-package com.example.demo.domain;
+package com.example.demo.domain.beans;
 
 import com.example.demo.domain.entities.BaseUser;
 import com.example.demo.domain.entities.Project;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProjectManagerImpl {
+public class ProjectManager {
     public void doStuff(Project withThis) {
-        System.out.println("Doing something" + withThis.getCreationDate());
-        doSomethingWithOtherEntity(withThis.creator());
+        doSomething(withThis.creator());
     }
 
-    public void doSomethingWithOtherEntity(BaseUser e) {
+    private void doSomething(BaseUser e) {
         System.out.println(e.greeting());
     }
 }

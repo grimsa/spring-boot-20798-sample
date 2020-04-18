@@ -1,4 +1,4 @@
-package com.example.demo.domain.a;
+package com.example.demo.domain.beans;
 
 import com.example.demo.domain.entities.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
