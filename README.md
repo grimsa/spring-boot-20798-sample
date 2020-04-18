@@ -59,6 +59,8 @@ There are two changes that make it run successfully (one of them is enough):
 * A) Go to `build.gradle` and downgrade Spring Boot to 2.1
 * B) Leave Spring Boot version as-is (2.2), but go to `com.example.demo.DemoApplication.LoadTimeWeavingConfiguration` and enable workaround
 
+Deleting `ProjectRepository` can also make the app start successfully, but it does not solve the underlying problem - still only one class gets transformed.
+
 # Expectation
 
 All the classes registered to be weaved, i.e.
