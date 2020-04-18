@@ -2,6 +2,9 @@ buildscript {
 	ext {
 		springBootVersion = '2.2.6.RELEASE'
 		springVersion = '5.2.5.RELEASE'
+
+//		**Option A that makes the app start** - downgrade Spring Boot to 2.1
+
 //		springBootVersion = '2.1.13.RELEASE'
 //		springVersion = '5.1.14.RELEASE'
 	}
