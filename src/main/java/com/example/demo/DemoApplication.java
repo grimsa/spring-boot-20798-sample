@@ -21,6 +21,8 @@ import java.util.Map;
 @SpringBootApplication
 @Import(DemoApplication.LoadTimeWeavingConfiguration.class)
 public class DemoApplication {
+    private static final String ECLIPSELINK_WEAVER_LOGGING_LEVEL = SessionLog.FINER_LABEL;
+
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
@@ -33,7 +35,7 @@ public class DemoApplication {
         entityManagerFactory.setPackagesToScan("com.example.demo");
         entityManagerFactory.setJpaVendorAdapter(eclipseLinkJpaVendorAdapter());
         entityManagerFactory.setJpaPropertyMap(Map.of(
-                PersistenceUnitProperties.CATEGORY_LOGGING_LEVEL_ + SessionLog.WEAVER, SessionLog.FINEST_LABEL,
+                PersistenceUnitProperties.CATEGORY_LOGGING_LEVEL_ + SessionLog.WEAVER, ECLIPSELINK_WEAVER_LOGGING_LEVEL,
                 PersistenceUnitProperties.WEAVING, "true"
         ));
         return entityManagerFactory;
