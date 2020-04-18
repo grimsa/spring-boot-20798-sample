@@ -4,8 +4,10 @@ import com.example.demo.domain.a.ProjectManager;
 import com.example.demo.domain.entities.BaseUser;
 import com.example.demo.domain.entities.Project;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+@Component
 @Transactional
 public class ProjectManagerImpl implements ProjectManager, InitializingBean {
     private ProjectDao dao;

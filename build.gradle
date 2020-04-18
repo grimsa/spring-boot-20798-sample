@@ -1,9 +1,9 @@
 buildscript {
 	ext {
-//		springBootVersion = '2.2.6.RELEASE'
-//		springVersion = '5.2.5.RELEASE'
-		springBootVersion = '2.1.13.RELEASE'
-		springVersion = '5.1.14.RELEASE'
+		springBootVersion = '2.2.6.RELEASE'
+		springVersion = '5.2.5.RELEASE'
+//		springBootVersion = '2.1.13.RELEASE'
+//		springVersion = '5.1.14.RELEASE'
 		newRelicVersion = '4.8.0'
 	}
 }
